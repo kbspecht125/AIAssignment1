@@ -1,41 +1,80 @@
-package main;
-
+package Main;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.LinkedList;
-import java.util.ArrayList;
 public class Main {
-  int count=0;
-  int start,goal;
-  double endTime;
-public static void main(String [] args){
-  ArrayList<String> operations = new ArrayList<String>();
-  Scanner user_input = new Scanner(System.in);
-  String line= user_input.nextLine();
-  while(line != "\n"){
-    if(count==0){
-      start = Integer.parseInt(line);
-    }
-    else if(count==1){
-      goal = Integer.parseInt(line);
-    }
-    else if(count==2){
-      endTime = Double.parseDouble(line);
-    }
-    else{
-      operations.add(line);
-    }
-    count++;
-    line = user_input.nextLine();
-  }
-  
-//String start  = /*user_input.nextLine();*/ "10";
-//String goal  = /*user_input.nextLine();*/"89";
-//String op1  = /*user_input.nextLine();*/"- 5";
-//String op2  = /*user_input.nextLine();*/"+ 4";
-//String op3  = /*user_input.nextLine();*/"- 3";
-//String op4  = /*user_input.nextLine();*/"+ 0";
-//String op5  = /*user_input.nextLine();*/"^ 2";
-//String[] operations = new String[]{op1,op2,op3,op4,op5};
+
+static int goal;
+static int start;
+static double timeLimit;
+static String type;
+static ArrayList<String> operations = new ArrayList<String>();	
+
+public static void main(String[] args) {
+     Scanner user_input = new Scanner(System.in);
+     String line= user_input.nextLine();  
+	 String fileName = line;//"C:\\Users\\hp\\workspace\\test\\src\\test\\testfile.txt";
+	 //C:\Users\hp\workspace\test\src\test\testfile.txt
+	 try
+	 {
+		 BufferedReader in = new BufferedReader(new FileReader(new File(fileName)));
+		 System.out.println("opened");
+		 String inputFromTxt;
+			int count=0;
+			while((inputFromTxt=in.readLine()) != null){
+				if(count==0){
+					type = inputFromTxt.trim();
+				}
+				else if(count==1){
+					start = Integer.parseInt(inputFromTxt.trim());
+				}
+				else if(count==2){
+					goal = Integer.parseInt(inputFromTxt.trim());
+				}
+				else if(count==3){
+					timeLimit = Double.parseDouble(inputFromTxt.trim());
+				}
+				else{
+					operations.add(inputFromTxt.trim());
+				}
+				count++;
+			}
+			//at this point the type, start, goal, timeLimit,and array of operations should have been stored
+///////////////////////////////////////////// Testing Statements //////////////////////////////////////////////////////////////////////////////
+			System.out.println(type);
+			System.out.println(start);
+			System.out.println(goal);
+			System.out.println(timeLimit);
+			for(String i: operations){
+			System.out.print(i);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			}
+		 in.close();
+
+		 if(type.equals("iterative")){
+			 //do iterative deepening 
+		 }
+		 else if(type.equals("greedy")){
+			 //do greedy search
+		 }
+		 else{
+			 System.out.println("please indicate the type of search");
+		 }
+		 //System.out.println(goal);
+	 
+	 
+	 }
+	 catch (IOException e){
+		 System.out.println("error");
+	 }
+	}
+
+}
+// v this is originally here..
 Node n = new Node("", operations, new LinkedList<String>(), Integer.parseInt(goal), 1);
 n.data = Integer.parseInt(start);
 n.greedyAlgorithm();
