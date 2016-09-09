@@ -15,6 +15,7 @@ static String type;
 static ArrayList<String> operations = new ArrayList<String>();	
 
 public static void main(String[] args) {
+     System.out.println("please input the file location of the .txt file you want to run");
      Scanner user_input = new Scanner(System.in);
      String line= user_input.nextLine();  
 	 String fileName = line;//"C:\\Users\\hp\\workspace\\test\\src\\test\\testfile.txt";
