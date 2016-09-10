@@ -30,6 +30,11 @@ public class Node {
   public LinkedList<String> pulse(){
     int d = 0;
     while(d < 4){
+      if(System.currentTimeMillis()>Main.endTime)
+      {
+	      System.out.println("out of time");
+	      System.exit(0);
+      }
       LinkedList<String> ret = pulseRoot(d);
       if(ret != null){
         return ret;
@@ -110,6 +115,11 @@ public class Node {
       System.out.println(data + " y=" + yields);
       return yields;
     }else{
+      if(System.currentTimeMillis()>Main.endTime)
+      {
+	      System.out.println("out of time");
+	      System.exit(0);
+      }
       expand();
       System.out.println(data + " " + bestNode().operation + " = " + bestNode().data);
       this.yields = Math.abs(bestNode().data - goal);
