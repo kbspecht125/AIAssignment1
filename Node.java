@@ -30,7 +30,7 @@ public class Node {
   public LinkedList<String> pulse(){
     int d = 0;
     while(true){
-      if(System.currentTimeMillis()>Main.endTime)
+      if((System.currentTimeMillis()+ Main.startTime+ (long) Math.pow(operations.size(),d))>Main.endTime)
       {
 	      System.out.println("out of time");
 	      System.exit(0);
