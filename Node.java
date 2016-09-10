@@ -83,7 +83,7 @@ public class Node {
     System.out.println("Goal - " + goal);
     System.out.println("Operation - " + operation);
     for(int i = 0; i < operations.size(); i++){
-      System.out.println("operations - " + operations[i]);
+      System.out.println("operations - " + operations.get(i));
     }
     for(String s : history){
       System.out.println("history - " + s);
@@ -159,7 +159,7 @@ public class Node {
       history.addLast(operation);
     }
     for(int i = 0; i < operations.size(); i++){
-      Node n = new Node(operations[i], operations, this.history, this.goal, nodesexpanded + 1);
+      Node n = new Node(operations.get(i), operations, this.history, this.goal, nodesexpanded + 1);
       n.parent = this;
       n.data = n.operate(data);
       nodeops.addLast(n);
