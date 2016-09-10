@@ -29,7 +29,7 @@ public class Node {
 
   public LinkedList<String> pulse(){
     int d = 0;
-    while(d < 4){
+    while(true){
       if(System.currentTimeMillis()>Main.endTime)
       {
 	      System.out.println("out of time");
@@ -42,7 +42,6 @@ public class Node {
         d++;
       }
     }
-    return null;
   }
   public LinkedList<String> parentOps(){
     LinkedList<String> lst = new LinkedList<String>();
