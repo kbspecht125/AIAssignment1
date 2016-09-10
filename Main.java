@@ -81,7 +81,7 @@ n.data=start;
 long startTime=System.currentTimeMillis();
 endTime=startTime+(int)(timeLimit*1000);
 if(type.equals("greedy"))
-	n.greedyAlgorithm();
+	n.grandNewGreedy();
 else if(type.equals("iterative"))
 	n.pulse();
 else
