@@ -46,14 +46,6 @@ public static void main(String[] args) {
 				count++;
 			}
 			//at this point the type, start, goal, timeLimit,and array of operations should have been stored
-///////////////////////////////////////////// Testing Statements //////////////////////////////////////////////////////////////////////////////
-			System.out.println(type);
-			System.out.println(start);
-			System.out.println(goal);
-			System.out.println(timeLimit);
-			for(String i: operations){
-			System.out.print(i);
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			}
 		 in.close();
 
