@@ -14,6 +14,7 @@ static double timeLimit;
 static String type;
 static ArrayList<String> operations = new ArrayList<String>();
 static long endTime;
+static long startTime;
 
 public static void main(String[] args) {
      System.out.println("please input the file location of the .txt file you want to run");
@@ -70,7 +71,7 @@ public static void main(String[] args) {
 Node n = new Node("", operations, new LinkedList<String>(), goal, 1);
 n.data=start;
 
-long startTime=System.currentTimeMillis();
+startTime=System.currentTimeMillis();
 endTime=startTime+(int)(timeLimit*1000);
 if(type.equals("greedy"))
 	n.grandNewGreedy();
