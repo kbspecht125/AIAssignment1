@@ -73,15 +73,18 @@ public static void main(String[] args) {
 	 catch (IOException e){
 		 System.out.println("error");
 	 }
-	}
 
-}
 // v this is originally here..
-Node n = new Node("", operations, new LinkedList<String>(), Integer.parseInt(goal), 1);
-n.data = Integer.parseInt(start);
+Node n = new Node("", operations, new LinkedList<String>(), goal, 1);
+n.data=start;
 
 long startTime=System.currentTimeMillis();
 endTime=startTime+(int)(timeLimit*1000);
-n.greedyAlgorithm();
+if(type.equals("greedy"))
+	n.greedyAlgorithm();
+else if(type.equals("iterative"))
+	n.pulse();
+else
+	System.out.println("Not a type!");
 }
 }
